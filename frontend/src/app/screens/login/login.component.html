@@ -1,0 +1,29 @@
+<section class="flex gap-1 w-full border border-1 border-red bg-PrimaryColor p-5 h-screen">
+	<div class="w-1/2">
+		<app-auth-side-image></app-auth-side-image>
+	</div>
+	<div class="w-1/2 text-White p-36">
+		<header class="mb-20">
+			<h1 class="text-[32px] font-semibold">Login</h1>
+			<p class="text-grey">Enter your user details below..</p>
+		</header>
+	
+
+			<app-spinner-component *ngIf="isLoading"></app-spinner-component>
+	
+		<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+			<label for="">Email</label>
+			<input type="email" class="w-full py-[20px] px-[40px] rounded-md my-5 bg-TertiaryColor"
+				placeholder="Enter email" formControlName="email"> <br>
+			<div class="flex justify-between">
+				<label for="">Password</label>
+				<a class="text-SecondaryColor cursor-pointer" [routerLink]="['/forgot-password']">forgot Password?</a>
+			</div>
+			<input type="password" class="w-full py-[20px] px-[40px] rounded-md my-5 bg-TertiaryColor"
+				placeholder="********" formControlName="password">
+			<app-auth-btn title="Login"></app-auth-btn>
+		</form>
+		<h4 class="text-center">Don’t have an account?<a class="text-SecondaryColor" [routerLink]="['/register']">Create one!</a>
+		</h4>
+	</div>
+</section>

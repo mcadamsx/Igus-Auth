@@ -1,0 +1,30 @@
+<section class="flex gap-1 w-full border border-1 border-red bg-PrimaryColor p-5 h-screen">
+	<div class="w-1/2">
+		<app-auth-side-image></app-auth-side-image>
+	</div>
+	<div class="w-1/2 text-White p-36">
+		<header class="mb-20">
+			<h1 class="text-[32px] font-semibold">Register</h1>
+			<p class="text-grey">Enter your user details below..</p>
+		</header>
+	
+			<app-spinner-component *ngIf="isLoading"></app-spinner-component>
+		
+		<form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+			<label for="">Name</label>
+			<input type="text" class="w-full py-[20px] px-[40px] rounded-md my-5 bg-TertiaryColor"
+				placeholder="Enter Name" formControlName="name"> <br>
+			<label for="">Email</label>
+			<input type="email" class="w-full py-[20px] px-[40px] rounded-md my-5 bg-TertiaryColor"
+				placeholder="Enter email" formControlName="email"> <br>
+
+			<label for="">Password</label>
+
+			<input type="password" class="w-full py-[20px] px-[40px] rounded-md my-5 bg-TertiaryColor"
+				placeholder="********" formControlName="password">
+			<app-auth-btn title="Register"></app-auth-btn>
+		</form>
+		<h4 class="text-center">Have an account?<a class="text-SecondaryColor" [routerLink]="['/login']">Login!</a>
+		</h4>
+	</div>
+</section>
